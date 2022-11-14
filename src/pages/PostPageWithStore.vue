@@ -61,7 +61,7 @@
     import PostForm from "@/components/PostForm.vue"
     import PostList from "@/components/PostList.vue"
     import MyButton from "@/components/UI/MyButton.vue"
-    import axios from "axios"
+    // import axios from "axios"
     import MySelect from "@/components/UI/MySelect.vue"
     import MyInput from "@/components/UI/MyInput.vue"
     import {mapState, mapGetters, mapActions, mapMutations} from "vuex"
