@@ -15,7 +15,7 @@
         <my-select
             v-model="selectedSort"
             :options="sortOptions"
-        ></my-select>
+        />
         </div>
         <!-- <my-button @click="fetchPosts">Получить посты</my-button> -->
         <my-dialog v-model:show="dialogVisible">  
@@ -53,11 +53,11 @@
     import MyButton from "@/components/UI/MyButton.vue"
     import axios from "axios"
     import MySelect from "@/components/UI/MySelect.vue"
-    
+    import MyInput from "@/components/UI/MyInput";
     
     export default {
         components: {
-           PostList,  PostForm, MyButton, MySelect
+            MyInput, PostList,  PostForm, MyButton, MySelect, 
         },
     
         data() {
@@ -68,7 +68,7 @@
                 selectedSort: '',
                 searchQuery: '',
                 page: 1,
-                limit:10,
+                limit: 10,
                 totalPages: 0,
                 sortOptions: [
                     {value: 'title', name: 'По названию'},
@@ -144,9 +144,7 @@
     
         computed: {
             sortedPosts() {
-                return [...this.posts].sort((post1, post2) => {
-                    return post1[this.selectedSort]?.localeCompare(post2[this.selectedSort])
-                })
+                return [...this.posts].sort((post1, post2) => post1[this.selectedSort]?.localeCompare(post2[this.selectedSort]))
             },
     
             sortedAndSearchedPosts() {
